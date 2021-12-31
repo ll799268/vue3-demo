@@ -1,3 +1,11 @@
 <template>
-  <p>home</p>
+  <p>213</p>
 </template>
+
+<script setup>
+  
+</script>
+
+<style>
+
+</style>
