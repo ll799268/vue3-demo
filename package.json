@@ -1,13 +1,17 @@
 {
-  "name": "vite-project",
-  "version": "0.0.0",
+  "name": "vue3-demo",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "server": "cross-env vite --mode development",
+    "product": "cross-env vite --mode production",
+    "build": "cross-env vite build --mode development",
+    "build:product": "cross-env vite build --mode production"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "cross-env": "^7.0.3",
+    "save-dev": "^0.0.1-security",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
