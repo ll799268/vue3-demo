@@ -20,6 +20,10 @@ export default defineConfig({
         replacement: '/src/components'
       },
       {
+        find: '@libs',
+        replacement: '/src/libs'
+      },
+      {
         find: '@views',
         replacement: '/src/views'
       }
