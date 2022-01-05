@@ -1,5 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  p {
-    color: red;
-  }
+  font-size: .13rem;
+}
+
+button {
+  border: none;
+}
+
+input {
+  outline: none;
 }
