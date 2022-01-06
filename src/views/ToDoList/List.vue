@@ -1,5 +1,5 @@
 <template>
-  <ul class="list">
+  <ul class="list" v-if="list.length">
     <li v-for="item in list"
       :key="item.id">
         <div class="left">
@@ -13,6 +13,8 @@
         </div>
       </li>
   </ul>
+  <p class="empty-status"
+    v-else>暂无待办事项</p>
 </template>
 <script setup>
 
@@ -68,5 +70,13 @@
         }
       }
     }
+  }
+  .empty-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 0.55rem);
+    font-size: 0.18rem;
+    color: #d3d3d3;
   }
 </style>
