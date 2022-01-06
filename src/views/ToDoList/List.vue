@@ -7,7 +7,8 @@
           <span :style="{  textDecoration: item.isCompleted ? 'line-through' : '' }">{{ item.content }}</span>
         </div>
         <div class="btn-group">
-          <button class="btn btn-primary">查看</button>
+          <button class="btn btn-primary"
+            @click="checkItem(item.id)">查看</button>
           <button class="btn btn-warning">编辑</button>
           <button class="btn btn-danger"
             @click="delItem(item.id)">删除</button>
@@ -19,20 +20,24 @@
 </template>
 <script setup>
 
-const props = defineProps(
-  {
-    list: {
-      type: Array,
-      default: () => []
+  const props = defineProps(
+    {
+      list: {
+        type: Array,
+        default: () => []
+      }
     }
+  )
+
+  const emit = defineEmits()
+
+  const delItem = id => {
+    emit('delItem', id)
   }
-)
 
-const emit = defineEmits()
-
-const delItem = id => {
-  emit('delItem', id)
-}
+  const checkItem = id => {
+    emit('checkItem', id)
+  }
 
 </script>
 
