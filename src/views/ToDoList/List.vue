@@ -9,7 +9,8 @@
         <div class="btn-group">
           <button class="btn btn-primary">查看</button>
           <button class="btn btn-warning">编辑</button>
-          <button class="btn btn-danger">删除</button>
+          <button class="btn btn-danger"
+            @click="delItem(item.id)">删除</button>
         </div>
       </li>
   </ul>
@@ -18,14 +19,20 @@
 </template>
 <script setup>
 
-  const props = defineProps(
-    {
-      list: {
-        type: Array,
-        default: () => []
-      }
+const props = defineProps(
+  {
+    list: {
+      type: Array,
+      default: () => []
     }
-  )
+  }
+)
+
+const emit = defineEmits()
+
+const delItem = id => {
+  emit('delItem', id)
+}
 
 </script>
 

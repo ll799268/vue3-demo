@@ -5,7 +5,8 @@
       @handleShowAddInput="handleShowAddInput"
       @addIpVal="addIpVal"
       v-show="isShowAddInput" />
-    <List :list="list" />
+    <List @delItem="delItem"
+      :list="data.list"  />
   </div>
 </template>
 
@@ -18,13 +19,16 @@
 
   const isShowAddInput = ref(false)
 
-  const list = reactive([])
+  const data = reactive({
+    list: []
+  })
 
   const handleShowAddInput = val => {
     isShowAddInput.value = val
   }
 
   const addIpVal = val => {
+    const { list } = data 
     list.push(
       {
         id: Date.now(),
@@ -32,6 +36,11 @@
         isCompleted: false
       }
     )
+  }
+
+  const delItem = id => {
+    const { list } = data 
+    list = list.filter(item => item.id !== id)
   }
 
 </script>
