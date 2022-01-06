@@ -64,16 +64,6 @@ const delItem = id => {
           width: 0.5rem;
           height: 0.26rem;
           margin-left: 0.1rem;
-          color: #fff;
-          &.btn-primary {
-            background: #337ab7;
-          }
-          &.btn-warning {
-            background: #f0ad4e;
-          }
-          &.btn-danger {
-            background: #d9534f;
-          }
         }
       }
     }

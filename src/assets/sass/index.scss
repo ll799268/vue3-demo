@@ -15,3 +15,16 @@ button {
 input {
   outline: none;
 }
+
+.btn {
+  color: #fff;
+  &.btn-primary {
+    background: #337ab7;
+  }
+  &.btn-warning {
+    background: #f0ad4e;
+  }
+  &.btn-danger {
+    background: #d9534f;
+  }
+}
