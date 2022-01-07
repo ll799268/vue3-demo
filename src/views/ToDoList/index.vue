@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-  import { ref, reactive } from 'vue'
+  import { ref, reactive, watchEffect } from 'vue'
 
   import Header from './Header.vue'
   import AddInput from './AddInput.vue'
@@ -35,9 +35,11 @@
     isEditModalShow = ref(false)
 
   const data = reactive({
-    list: [],
+    list: JSON.parse(window.localStorage.getItem('todoListData')) || [],
     itemDetail: {}
   })
+
+  watchEffect(() => window.localStorage.setItem('todoListData', JSON.stringify(data.list)))
 
   const handleShowAddInput = val => {
     isShowAddInput.value = val

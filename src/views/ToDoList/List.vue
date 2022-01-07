@@ -1,5 +1,5 @@
 <template>
-  <ul class="list" v-if="list.length">
+  <ul class="list" v-if="list?.length">
     <li v-for="item in list"
       :key="item.id">
         <div class="left">
