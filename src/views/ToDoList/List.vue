@@ -23,7 +23,6 @@
     v-else>暂无待办事项</p>
 </template>
 <script setup>
-
   const props = defineProps(
     {
       list: {
@@ -35,21 +34,12 @@
 
   const emit = defineEmits()
 
-  const delItem = id => {
-    emit('delItem', id)
-  }
-
-  const checkItem = id => {
-    emit('openCheckModal', id)
-  }
-
-  const editItem = id => {
-    emit('openEditModal', id)
-  }
-
-  const handleChangeStatus = (id, status) => {
-    emit('handleChangeStatus', { id, status })
-  }
+  const delItem = id => emit('delItem', id),
+    checkItem = id =>  emit('openCheckModal', id),
+    editItem = id => emit('openEditModal', id),
+    handleChangeStatus = (id, status) => {
+      emit('handleChangeStatus', { id, status })
+    }
 
 </script>
 

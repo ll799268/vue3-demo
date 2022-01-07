@@ -5,7 +5,7 @@
     <p className="topic">状态：{{ itemDetail.isCompleted ? '已完成' : '未完成' }}</p>
 
     <button className="btn btn-primary submit"
-      @click="handleClose">
+      @click="handleModalClose">
       确定
     </button>
   </Modal>
@@ -27,7 +27,7 @@
 
   const emit = defineEmits()
 
-  const handleClose = () => {
+  const handleModalClose = () => {
     emit('handleModalClose')
   }
 

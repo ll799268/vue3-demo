@@ -1,10 +1,9 @@
 <template>
   <div class="todo-list">
     <Header @handleShowAddInput="handleShowAddInput" />
-    <AddInput 
+    <AddInput v-show="isShowAddInput"
       @handleShowAddInput="handleShowAddInput"
-      @addIpVal="addIpVal"
-      v-show="isShowAddInput" />
+      @addIpVal="addIpVal" />
     <List 
       @handleChangeStatus="handleChangeStatus"
       @openCheckModal="openCheckModal"
@@ -75,13 +74,9 @@
     isEditModalShow.value = true
   }
 
-  const handleModalClose = () => {
-    isCheckModalShow.value = false
-  }
+  const handleModalClose = () => isCheckModalShow.value = false
 
-  const handleConfirmChange = () => {
-    isEditModalShow.value = false
-  }
+  const handleConfirmChange = () => isEditModalShow.value = false
 
   const handleChangeStatus = props => {
     const { list } = data,

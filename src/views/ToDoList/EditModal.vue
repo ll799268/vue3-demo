@@ -4,8 +4,7 @@
     <p className="topic">
       <textarea
         v-model="itemDetail.content"
-        className="text-area"
-      ></textarea>
+        className="text-area"></textarea>
     </p>
     <p className="topic">状态：
       <input type="checkbox" 
