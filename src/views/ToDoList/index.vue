@@ -7,12 +7,17 @@
       v-show="isShowAddInput" />
     <List 
       @handleChangeStatus="handleChangeStatus"
-      @checkItem="checkItem"
+      @openCheckModal="openCheckModal"
+      @openEditModal="openEditModal"
       @delItem="delItem"
       :list="data.list"  />
 
     <CheckModal v-if="isCheckModalShow"
       @handleModalClose="handleModalClose"
+      :itemDetail="data.itemDetail" />
+
+    <EditModal v-if="isEditModalShow"
+      @handleConfirmChange="handleConfirmChange"
       :itemDetail="data.itemDetail" />
   </div>
 </template>
@@ -24,9 +29,11 @@
   import AddInput from './AddInput.vue'
   import List from './List.vue'
   import CheckModal from './CheckModal.vue'
+  import EditModal from './EditModal.vue'
 
   const isShowAddInput = ref(false),
-    isCheckModalShow = ref(false)
+    isCheckModalShow = ref(false),
+    isEditModalShow = ref(false)
 
   const data = reactive({
     list: [],
@@ -53,14 +60,27 @@
     data.list = list.filter(item => item.id !== id)
   }
 
-  const checkItem = id => {
+  const setCurrentData = id => {
     const { list } = data 
     data.itemDetail = list.filter(item => item.id === id)[0]
+  }
+
+  const openCheckModal = id => {
+    setCurrentData(id)
     isCheckModalShow.value = true
+  }
+
+  const openEditModal = id => {
+    setCurrentData(id)
+    isEditModalShow.value = true
   }
 
   const handleModalClose = () => {
     isCheckModalShow.value = false
+  }
+
+  const handleConfirmChange = () => {
+    isEditModalShow.value = false
   }
 
   const handleChangeStatus = props => {

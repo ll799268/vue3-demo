@@ -12,7 +12,8 @@
         <div class="btn-group">
           <button class="btn btn-primary"
             @click="checkItem(item.id)">查看</button>
-          <button class="btn btn-warning">编辑</button>
+          <button class="btn btn-warning"
+            @click="editItem(item.id)">编辑</button>
           <button class="btn btn-danger"
             @click="delItem(item.id)">删除</button>
         </div>
@@ -39,7 +40,11 @@
   }
 
   const checkItem = id => {
-    emit('checkItem', id)
+    emit('openCheckModal', id)
+  }
+
+  const editItem = id => {
+    emit('openEditModal', id)
   }
 
   const handleChangeStatus = (id, status) => {
