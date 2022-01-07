@@ -3,8 +3,11 @@
     <li v-for="item in list"
       :key="item.id">
         <div class="left">
-          <input v-model="item.isCompleted" type="checkbox" />
-          <span :style="{  textDecoration: item.isCompleted ? 'line-through' : '' }">{{ item.content }}</span>
+          <input v-model="item.isCompleted" 
+            type="checkbox"
+            @change="handleChangeStatus(item.id, item.isCompleted)" />
+          <span :style="{ textDecoration: item.isCompleted ? 'line-through' : '' }"
+            >{{ item.content }}</span>
         </div>
         <div class="btn-group">
           <button class="btn btn-primary"
@@ -37,6 +40,10 @@
 
   const checkItem = id => {
     emit('checkItem', id)
+  }
+
+  const handleChangeStatus = (id, status) => {
+    emit('handleChangeStatus', { id, status })
   }
 
 </script>

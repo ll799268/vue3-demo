@@ -6,12 +6,13 @@
       @addIpVal="addIpVal"
       v-show="isShowAddInput" />
     <List 
+      @handleChangeStatus="handleChangeStatus"
       @checkItem="checkItem"
       @delItem="delItem"
       :list="data.list"  />
 
     <CheckModal v-if="isCheckModalShow"
-      @handleClose="handleClose"
+      @handleModalClose="handleModalClose"
       :itemDetail="data.itemDetail" />
   </div>
 </template>
@@ -42,7 +43,7 @@
       {
         id: Date.now(),
         content: val,
-        isCompleted: false
+        isCompleted: true
       }
     )
   }
@@ -58,8 +59,20 @@
     isCheckModalShow.value = true
   }
 
-  const handleClose = () => {
+  const handleModalClose = () => {
     isCheckModalShow.value = false
+  }
+
+  const handleChangeStatus = props => {
+    const { list } = data,
+      { id, status } = props
+    
+    data.list = list.map(item => {
+      if (item.id === id) {
+        item.isCompleted = status
+      }
+      return item
+    })
   }
 
 </script>

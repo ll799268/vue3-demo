@@ -2,7 +2,7 @@
   <Modal :modalTitle="modalTitle">
     <p className="topic">时间：{{ formatTime(itemDetail.id, 'yyyy年mm月dd日', 'hh:mm:ss') }}</p>
     <p className="topic">内容：{{ itemDetail.content }}</p>
-    <p className="topic">状态：{{ itemDetail.completed ? '已完成' : '未完成' }}</p>
+    <p className="topic">状态：{{ itemDetail.isCompleted ? '已完成' : '未完成' }}</p>
 
     <button className="btn btn-primary submit"
       @click="handleClose">
@@ -28,7 +28,7 @@
   const emit = defineEmits()
 
   const handleClose = () => {
-    emit('handleClose')
+    emit('handleModalClose')
   }
 
 </script>
